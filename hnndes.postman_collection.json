@@ -1,0 +1,270 @@
+{
+	"info": {
+		"_postman_id": "3f891092-28dd-49c3-8cbc-7cb600d39279",
+		"name": "hnndes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if(pm.response.code===200){\r",
+									"          pm.environment.set('token',pm.response.json()['data'][\"token\"])\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"username\":\"admin\",\r\n     \"password\":\"qwe123QWE!@#\",\r\n     \"tokenDevice\":\"fGD5gxO6bu-smiauxLg8r-:APA91bF-IEPBiZjTa46kLg19xwCTBPJk1Nmex5u_G282jjfds7QcoVd95OHBJ4e2lnidKkh8Wh0Wwzj4cX8UWA1gwG70RJjjQyPpdhR736NBam4CPqRjNuWnxnhrR2kkZhtjVW-aORFi\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if(pm.response.code===200){\r",
+									"          pm.environment.set('token',\"\")\r",
+									"        \r",
+									"} "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/auth/logout",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"name\":\"Raed2\",\r\n     \"gender\":\"ذكر\",\r\n     \"phoneNumber\":\"0982312364\",  \r\n    \r\n     \"username\":\"raed.al22222 \",\r\n     \"password\":\"123456789asd\",  \"tokenDevice\":\"fGD5gxO6bu-smiauxLg8r-:APA91bF-IEPBiZjTa46kLg19xwCTBPJk1Nmex5u_G282jjfds7QcoVd95OHBJ4e2lnidKkh8Wh0Wwzj4cX8UWA1gwG70RJjjQyPpdhR736NBam4CPqRjNuWnxnhrR2kkZhtjVW-aORFi\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/signup",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "note",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"hi\",\r\n    \"text\":\"hello hnndes , my name is raed almasri \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/note/create",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"note",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"hi,hello\",\r\n    \"text\":\"hello hnndes , my name is raed almasri \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/note/update/2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"note",
+								"update",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/note/delete/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"note",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/note/all?page=1&size=1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"note",
+								"all"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/note/getById/4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"note",
+								"getById",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
