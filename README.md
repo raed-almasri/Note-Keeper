@@ -1,4 +1,4 @@
-# notes
+# Note-Keeper
 
 The main features of the project include:
 
